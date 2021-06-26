@@ -2,22 +2,23 @@ import React from 'react'
 import {
   View,
   Text,
-  TouchableOpacity,
-  TouchableOpacityProps,
   Image,
 } from 'react-native'
+import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 
 import DiscordImg from '../../assets/discord.png';
+import { theme } from '../../global/styles/theme';
 import { styles } from './styles';
 
-interface ButtonProps extends TouchableOpacityProps{
+interface ButtonProps extends RectButtonProps{
   title: string;
 }
 
 const ButtonIcon = ({ title, ...rest }: ButtonProps) => {
   return (
-    <TouchableOpacity 
+    <RectButton 
     style={styles.container}
+    rippleColor={theme.colors.line}
     {...rest}
     >
       <View style={styles.iconWrapper}>
@@ -26,7 +27,7 @@ const ButtonIcon = ({ title, ...rest }: ButtonProps) => {
       <Text style={styles.title}>
         {title}
       </Text>
-    </TouchableOpacity>
+    </RectButton>
   )
 }
 
